@@ -34,7 +34,7 @@ app.use(express.urlencoded({extended:true}))
 const httpServer = http.createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: "*"
+    origin: "https://chat-client-lk88z4v7s-kurmangali0606-gmailcom.vercel.app"
   },
 });
 
