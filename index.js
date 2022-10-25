@@ -18,6 +18,7 @@ mongoose.connect(process.env.MONGODB_URL).then(() => {
 const app = express();
 const PORT = 4000;
 
+// app.use(cors());
 const httpServer = http.createServer(app);
 const io = new Server(httpServer, {
   cors: {
@@ -31,7 +32,7 @@ app.get('/',  (req, res )=> {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-app.use(cors());
+
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
