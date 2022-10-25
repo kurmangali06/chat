@@ -25,6 +25,9 @@ const io = new Server(httpServer, {
   },
 });
 
+app.get('/',  (req, res )=> {
+  res.send("hello world")
+} );
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -32,6 +35,7 @@ app.use(cors());
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
+
 app.use("/", router);
 
 io.on("connection", sockets);
