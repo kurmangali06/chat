@@ -9,6 +9,8 @@ import router from "./api/routes.js";
 import sockets from "./socket/sockets.js";
 import dotenv from 'dotenv'
 
+
+
 dotenv.config();
 mongoose.connect(process.env.MONGODB_URL).then(() => {
   console.log('connected to DB');
@@ -18,15 +20,14 @@ mongoose.connect(process.env.MONGODB_URL).then(() => {
 const app = express();
 const PORT = 4000;
 
-// app.use(cors());
+app.use(cors());
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
 const httpServer = http.createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: "https://chat-client-sigma.vercel.app",
-    credentials: true
+    origin: "*"
   },
 });
 
